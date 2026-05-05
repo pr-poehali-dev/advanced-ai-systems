@@ -2,8 +2,8 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
-const WOMAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/3f0c308f-8c9b-4471-a498-45586d9e50ae.jpg"
-const MAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/5886f46d-c005-4b49-a25a-5b68f298459d.jpg"
+const WOMAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/a80c1782-25f4-40ba-81b8-80a84a1e1ed1.jpg"
+const MAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/97ebe9a1-2181-4946-bee0-78ef4f7ab44f.jpg"
 
 export default function HeroSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,6 +25,22 @@ export default function HeroSection() {
 
   return (
     <div id="hero" className="relative h-screen w-full overflow-hidden bg-black">
+
+      {/* Ken-Burns animations */}
+      <style>{`
+        @keyframes kenburns-left {
+          0%   { transform: scale(1.12) translate(2%, 1%); }
+          50%  { transform: scale(1.19) translate(-1.5%, -2%); }
+          100% { transform: scale(1.12) translate(2%, 1%); }
+        }
+        @keyframes kenburns-right {
+          0%   { transform: scale(1.12) translate(-2%, -1%); }
+          50%  { transform: scale(1.19) translate(1.5%, 2%); }
+          100% { transform: scale(1.12) translate(-2%, -1%); }
+        }
+        .kenburns-left  { animation: kenburns-left  10s ease-in-out infinite; }
+        .kenburns-right { animation: kenburns-right 12s ease-in-out infinite; }
+      `}</style>
 
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-6 md:p-8">
@@ -77,12 +93,10 @@ export default function HeroSection() {
           onMouseEnter={() => setHoveredSide("left")}
           onMouseLeave={() => setHoveredSide(null)}
         >
-          {/* Background image */}
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
+          {/* Animated background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center kenburns-left"
             style={{ backgroundImage: `url('${WOMAN_IMG}')` }}
-            animate={{ scale: hoveredSide === "left" ? 1.05 : 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
           />
 
           {/* Gradient overlay */}
@@ -90,6 +104,13 @@ export default function HeroSection() {
 
           {/* Divider line */}
           <div className="absolute right-0 top-0 bottom-0 w-px bg-white/30 z-10" />
+
+          {/* LuxHistory chest label */}
+          <div className="absolute z-10 pointer-events-none" style={{ bottom: "37%", left: "50%", transform: "translateX(-50%)" }}>
+            <span className="text-black font-normal select-none whitespace-nowrap" style={{ fontSize: "9px", letterSpacing: "0.2em" }}>
+              LuxHistory
+            </span>
+          </div>
 
           {/* Label top */}
           <motion.div
@@ -121,16 +142,21 @@ export default function HeroSection() {
           onMouseEnter={() => setHoveredSide("right")}
           onMouseLeave={() => setHoveredSide(null)}
         >
-          {/* Background image */}
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
+          {/* Animated background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center kenburns-right"
             style={{ backgroundImage: `url('${MAN_IMG}')` }}
-            animate={{ scale: hoveredSide === "right" ? 1.05 : 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
           />
 
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
+
+          {/* LuxHistory chest label */}
+          <div className="absolute z-10 pointer-events-none" style={{ bottom: "37%", left: "50%", transform: "translateX(-50%)" }}>
+            <span className="text-white font-normal select-none whitespace-nowrap" style={{ fontSize: "9px", letterSpacing: "0.2em" }}>
+              LuxHistory
+            </span>
+          </div>
 
           {/* Label top */}
           <motion.div
