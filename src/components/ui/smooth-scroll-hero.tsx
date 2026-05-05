@@ -154,7 +154,7 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
 
             {/* Trust Indicators */}
             <div className="mt-12 pt-6 border-t border-white/20">
-              <p className="text-xs text-gray-400 mb-3 font-medium">NOIR STUDIO — КАЧЕСТВО БЕЗ КОМПРОМИССОВ</p>
+              <p className="text-xs text-gray-400 mb-3 font-medium">LUXHISTORY — КАЧЕСТВО БЕЗ КОМПРОМИССОВ</p>
               <div className="flex flex-wrap justify-center items-center gap-4 text-gray-300">
                 <span className="text-xs font-semibold">НАТУРАЛЬНЫЕ ТКАНИ</span>
                 <span className="text-xs font-semibold">ДОСТАВКА ПО ВСЕЙ СТРАНЕ</span>

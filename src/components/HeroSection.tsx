@@ -57,7 +57,7 @@ export default function HeroSection() {
       {/* Navigation */}
       <nav className="relative z-20 flex items-center justify-between p-6 md:p-8">
         {/* Logo/Brand */}
-        <div className="text-white font-bold text-xl tracking-wider">NOIR</div>
+        <div className="text-white font-bold text-xl tracking-wider">LUXHISTORY</div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -105,9 +105,9 @@ export default function HeroSection() {
         <div className="text-center text-white max-w-4xl">
           {/* Main Title */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-wider mb-4 leading-none">
-            NOIR
+            LUX
             <br />
-            STUDIO
+            HISTORY
           </h1>
 
           {/* Subtitle */}
