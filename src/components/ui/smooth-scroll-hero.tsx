@@ -90,15 +90,15 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
               ГОТОВ
               <br />
               <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-                БЕЖАТЬ С НАМИ?
+                ОБНОВИТЬ ГАРДЕРОБ?
               </span>
             </h2>
 
             {/* Supporting Text */}
             <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed font-medium">
-              Присоединяйся к тысячам бегунов по всему миру, которые нашли свою команду,
+              Присоединяйся к тысячам людей, которые выбрали стиль без компромиссов.
               <br className="hidden md:block" />
-              раздвинули границы возможного и открыли свой истинный потенциал.
+              Одежда, которая работает на тебя — каждый день.
             </p>
 
             {/* Stats Grid */}
@@ -109,8 +109,8 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     <Users className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">50 000+</div>
-                <div className="text-xs md:text-sm text-gray-300 font-medium">Бегунов</div>
+                <div className="text-2xl md:text-3xl font-black text-white mb-1">15 000+</div>
+                <div className="text-xs md:text-sm text-gray-300 font-medium">Клиентов</div>
               </div>
 
               <div className="text-center">
@@ -119,8 +119,8 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">120+</div>
-                <div className="text-xs md:text-sm text-gray-300 font-medium">Городов мира</div>
+                <div className="text-2xl md:text-3xl font-black text-white mb-1">40+</div>
+                <div className="text-xs md:text-sm text-gray-300 font-medium">Городов доставки</div>
               </div>
 
               <div className="text-center">
@@ -129,8 +129,8 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     <Calendar className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">365</div>
-                <div className="text-xs md:text-sm text-gray-300 font-medium">Дней в году</div>
+                <div className="text-2xl md:text-3xl font-black text-white mb-1">4</div>
+                <div className="text-xs md:text-sm text-gray-300 font-medium">Коллекции в год</div>
               </div>
 
               <div className="text-center">
@@ -139,8 +139,8 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
                     <Trophy className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">10 000+</div>
-                <div className="text-xs md:text-sm text-gray-300 font-medium">Целей достигнуто</div>
+                <div className="text-2xl md:text-3xl font-black text-white mb-1">98%</div>
+                <div className="text-xs md:text-sm text-gray-300 font-medium">Довольных покупок</div>
               </div>
             </div>
 
@@ -149,17 +149,17 @@ const SmoothScrollHero: React.FC<SmoothScrollHeroProps> = ({
               size="xxl"
               className="font-bold text-xl tracking-wide px-12 py-4 bg-gray-900 hover:bg-gray-800 text-white border-2 border-gray-900 hover:scale-105 transition-all duration-300"
             >
-              ВСТУПИТЬ В STRIDE
+              ПЕРЕЙТИ В МАГАЗИН
             </LiquidButton>
 
             {/* Trust Indicators */}
             <div className="mt-12 pt-6 border-t border-white/20">
-              <p className="text-xs text-gray-400 mb-3 font-medium">НАМ ДОВЕРЯЮТ БЕГУНЫ ПО ВСЕМУ МИРУ</p>
+              <p className="text-xs text-gray-400 mb-3 font-medium">NOIR STUDIO — КАЧЕСТВО БЕЗ КОМПРОМИССОВ</p>
               <div className="flex flex-wrap justify-center items-center gap-4 text-gray-300">
-                <span className="text-xs font-semibold">ДЛЯ НОВИЧКОВ</span>
-                <span className="text-xs font-semibold">МИРОВОЕ СООБЩЕСТВО</span>
-                <span className="text-xs font-semibold">ПРОВЕРЕННЫЕ РЕЗУЛЬТАТЫ</span>
-                <span className="text-xs font-semibold">БЕСПЛАТНО</span>
+                <span className="text-xs font-semibold">НАТУРАЛЬНЫЕ ТКАНИ</span>
+                <span className="text-xs font-semibold">ДОСТАВКА ПО ВСЕЙ СТРАНЕ</span>
+                <span className="text-xs font-semibold">ВОЗВРАТ 30 ДНЕЙ</span>
+                <span className="text-xs font-semibold">ЛИМИТИРОВАННЫЕ КОЛЛЕКЦИИ</span>
               </div>
             </div>
           </div>

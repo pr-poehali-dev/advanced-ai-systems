@@ -7,34 +7,34 @@ import SmoothScrollHero from "@/components/ui/smooth-scroll-hero"
 
 export default function Index() {
   const missionStatement =
-    "В Stride Collective мы верим: движение — это не просто выбор, это образ жизни. Рожденные из духа бегового сообщества, мы объединяем бегунов со всего мира, которых связывает страсть к преодолению границ. Бежишь ли ты навстречу рассвету по городским улицам или покоряешь горные тропы — мы здесь, чтобы вдохновлять тебя. Наше сообщество живет ритмом шагов, силой упорства и радостью общих побед. Присоединяйся к нам — беги не только ради формы, но ради свободы, дружбы и чистой любви к движению."
+    "В NOIR Studio мы верим: стиль — это не про тренды, это про характер. Каждая вещь создаётся с намерением — для тех, кто знает, чего хочет, и не боится это показать. Мы делаем одежду, которая живёт вместе с тобой: выдерживает твой темп, поддерживает твою уверенность и говорит о тебе без слов. Никакого шума — только чистая форма, качественный материал и дизайн, проверенный временем. Мода приходит и уходит. Стиль остаётся навсегда."
 
   const timelineEntries = [
     {
       id: 1,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RJ3iTXUn5SUexF6nHMZYhMoQLNCboK.png",
-      alt: "Бегунья в художественном размытии движения",
-      title: "Каждый шаг важен",
+      alt: "Модель в одежде NOIR Studio",
+      title: "Осенняя коллекция 2024",
       description:
-        "От первой пробежки вокруг дома до сотого марафона — у каждого бегуна своя история. В Stride Collective мы чествуем новичков, которые впервые шнуруют кроссовки. Твой темп не важен — важна твоя страсть. Чего ты ждешь?",
+        "Лаконичные силуэты, натуральные ткани и цвета, которые говорят сами за себя. Наша осенняя коллекция создана для городского ритма — от утренней встречи до вечернего выхода. Никаких лишних деталей, только то, что работает.",
       layout: "left" as const,
     },
     {
       id: 2,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LN9OPh9hw0b9rwSPRSslHoejcfoKHe.png",
-      alt: "Бегун с решимостью и концентрацией",
-      title: "Найди свой ритм",
+      alt: "Детали и качество материалов NOIR Studio",
+      title: "Качество в каждой детали",
       description:
-        "Гонишься за личными рекордами или просто встречаешь рассвет на бегу — наше сообщество принимает каждого. От спринтеров до любителей медленного бега, от трейлраннеров до звезд стадиона — здесь найдется место для тебя. Вопрос один: чего ты ждешь?",
+        "Мы работаем только с проверенными производителями и выбираем материалы, которые сохраняют форму и цвет после сотни стирок. Каждый шов, каждая фурнитура — это осознанный выбор. Потому что вещь должна служить, а не просто выглядеть.",
       layout: "right" as const,
     },
     {
       id: 3,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1FdGyjVpWQANGzsDWpoPIvF5SVI2za.png",
-      alt: "Бегун в динамике, демонстрирующий силу и грацию",
-      title: "Стань частью движения",
+      alt: "Стиль повседневной жизни с NOIR Studio",
+      title: "Одежда для жизни",
       description:
-        "Бег — это не только километры, это моменты. Утренние разговоры, общие трудности, коллективные победы. В Stride Collective ты вступаешь не просто в группу — ты становишься частью семьи. Зашнуруй кроссовки, выйди на старт и открой, на что ты способен. Серьезно, чего ты ждешь?",
+        "NOIR Studio — это не про «особый случай». Это про каждый день. Мы создаём вещи, которые вписываются в твою жизнь такой, какая она есть: насыщенной, разной и настоящей. Надевай — и просто живи.",
       layout: "left" as const,
     },
   ]
@@ -51,7 +51,7 @@ export default function Index() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-black tracking-wider mb-12 text-gray-900">НАША МИССИЯ</h2>
+            <h2 className="text-4xl md:text-6xl font-black tracking-wider mb-12 text-gray-900">О БРЕНДЕ</h2>
             <TextGradientScroll
               text={missionStatement}
               className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed text-gray-800"
@@ -70,9 +70,9 @@ export default function Index() {
         <div className="relative z-10">
           <div className="container mx-auto px-6 mb-16">
             <div className="text-center">
-              <h2 className="text-4xl md:text-6xl font-black tracking-wider mb-6 text-gray-900">МЫ РАДЫ КАЖДОМУ</h2>
+              <h2 className="text-4xl md:text-6xl font-black tracking-wider mb-6 text-gray-900">НАШИ КОЛЛЕКЦИИ</h2>
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-                У каждого бегуна свой путь. Вот лишь несколько историй из нашего открытого сообщества.
+                Каждая коллекция — это история. Вот что мы создали для тебя в этом сезоне.
               </p>
             </div>
           </div>
@@ -96,10 +96,10 @@ export default function Index() {
           >
             <h2 className="text-4xl md:text-6xl font-black tracking-wider text-gray-900 mb-6">
               Что говорят наши{" "}
-              <span className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">БЕГУНЫ</span>
+              <span className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">КЛИЕНТЫ</span>
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              Реальные истории от реальных бегунов, которые нашли свой ритм вместе со Stride Collective.
+              Реальные люди, реальные впечатления — вот что они говорят об одежде NOIR Studio.
             </p>
           </motion.div>
 
@@ -111,8 +111,8 @@ export default function Index() {
       <section id="join" className="relative">
         <SmoothScrollHero
           scrollHeight={2500}
-          desktopImage="/images/runners-motion-blur.png"
-          mobileImage="/images/runners-motion-blur.png"
+          desktopImage="https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/704e5c40-ace8-4b69-8c16-8a8635bec609.jpg"
+          mobileImage="https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/704e5c40-ace8-4b69-8c16-8a8635bec609.jpg"
           initialClipPercentage={30}
           finalClipPercentage={70}
         />
