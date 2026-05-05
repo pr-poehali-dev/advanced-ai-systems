@@ -1,25 +1,13 @@
-import { LiquidButton } from "@/components/ui/liquid-glass-button"
-import { Menu, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { useState } from "react"
+import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
+
+const WOMAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/3f0c308f-8c9b-4471-a498-45586d9e50ae.jpg"
+const MAN_IMG = "https://cdn.poehali.dev/projects/b27d4f0c-6def-4241-ac4c-beb0f90bc7f8/files/5886f46d-c005-4b49-a25a-5b68f298459d.jpg"
 
 export default function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const slides = [
-    {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-j46TPXDHzpn3M65wMva3qHPNhwokYn.png",
-      alt: "Группа бегунов в движении",
-    },
-    {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oH2K0gw1HEqvYhhbwJrYbmkBrbksyk.png",
-      alt: "Бегунья с эффектом размытия",
-    },
-    {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-DQ2brNc5Vszxllx17YNA6JqGqiHaRm.png",
-      alt: "Бегун во главе группы",
-    },
-  ]
+  const [hoveredSide, setHoveredSide] = useState<"left" | "right" | null>(null)
 
   const navItems = [
     { name: "Главная", href: "#hero" },
@@ -29,153 +17,158 @@ export default function HeroSection() {
     { name: "Магазин", href: "#join" },
   ]
 
-  // Navigation handlers
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
 
   return (
     <div id="hero" className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out"
-        style={{
-          backgroundImage: `url('${slides[currentSlide].image}')`,
-        }}
-      >
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
 
       {/* Navigation */}
-      <nav className="relative z-20 flex items-center justify-between p-6 md:p-8">
-        {/* Logo/Brand */}
-        <div className="text-white font-bold text-xl tracking-wider">LUXHISTORY</div>
+      <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-6 md:p-8">
+        <div className="text-white font-bold text-xl tracking-wider drop-shadow-lg">LUXHISTORY</div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className="relative text-white hover:text-gray-300 transition-colors duration-300 font-medium tracking-wide pb-1 group"
+              className="relative text-white hover:text-gray-300 transition-colors duration-300 font-medium tracking-wide pb-1 group drop-shadow"
             >
               {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full" />
             </button>
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-white hover:text-gray-300 transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          <span className="sr-only">Меню</span>
         </button>
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-black/90 z-30 md:hidden">
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-white text-2xl font-bold tracking-wider hover:text-gray-300 transition-colors duration-300"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
+        <div className="absolute inset-0 bg-black/95 z-40 md:hidden flex flex-col items-center justify-center space-y-8">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="text-white text-2xl font-bold tracking-wider hover:text-gray-300 transition-colors"
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
       )}
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex h-full items-center justify-center px-6">
-        <div className="text-center text-white max-w-4xl">
-          {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-wider mb-4 leading-none">
-            LUX
-            <br />
-            HISTORY
-          </h1>
+      {/* Split Screen */}
+      <div className="flex h-full">
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl font-light tracking-wide mb-8 text-gray-200">Одежда для тех, кто не боится быть собой</p>
+        {/* LEFT — Для неё */}
+        <motion.div
+          className="relative flex-1 overflow-hidden cursor-pointer"
+          animate={{ flex: hoveredSide === "left" ? 1.35 : hoveredSide === "right" ? 0.65 : 1 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          onMouseEnter={() => setHoveredSide("left")}
+          onMouseLeave={() => setHoveredSide(null)}
+        >
+          {/* Background image */}
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${WOMAN_IMG}')` }}
+            animate={{ scale: hoveredSide === "left" ? 1.05 : 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          />
 
-          {/* CTA Button - Now using LiquidButton */}
-          <LiquidButton
-            size="xxl"
-            className="font-semibold text-lg tracking-wide"
-            onClick={() => scrollToSection("#join")}
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
+
+          {/* Divider line */}
+          <div className="absolute right-0 top-0 bottom-0 w-px bg-white/30 z-10" />
+
+          {/* Label top */}
+          <motion.div
+            className="absolute top-28 left-0 right-0 flex justify-center"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: hoveredSide === "left" ? 1 : 0.6, y: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            Смотреть коллекцию
-          </LiquidButton>
-        </div>
-      </div>
+            <span className="text-white/80 text-xs tracking-[0.3em] font-light uppercase">Женская коллекция</span>
+          </motion.div>
 
-      {/* Slider Navigation */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-4">
-          {/* Previous Arrow */}
-          <button
-            onClick={prevSlide}
-            className="text-white hover:text-gray-300 transition-colors p-2"
-            aria-label="Предыдущий слайд"
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          {/* Slide Indicators */}
-          <div className="flex space-x-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? "bg-white" : "bg-white/40 hover:bg-white/60"
-                }`}
-                aria-label={`Перейти к слайду ${index + 1}`}
-              />
-            ))}
+          {/* Bottom CTA */}
+          <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-4 z-10">
+            <motion.button
+              className="px-10 py-3 border border-white text-white text-sm font-semibold tracking-widest uppercase backdrop-blur-sm bg-white/10 hover:bg-white hover:text-black transition-all duration-300"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Для неё
+            </motion.button>
           </div>
+        </motion.div>
 
-          {/* Next Arrow */}
-          <button
-            onClick={nextSlide}
-            className="text-white hover:text-gray-300 transition-colors p-2"
-            aria-label="Следующий слайд"
+        {/* RIGHT — Для него */}
+        <motion.div
+          className="relative flex-1 overflow-hidden cursor-pointer"
+          animate={{ flex: hoveredSide === "right" ? 1.35 : hoveredSide === "left" ? 0.65 : 1 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          onMouseEnter={() => setHoveredSide("right")}
+          onMouseLeave={() => setHoveredSide(null)}
+        >
+          {/* Background image */}
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${MAN_IMG}')` }}
+            animate={{ scale: hoveredSide === "right" ? 1.05 : 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
+
+          {/* Label top */}
+          <motion.div
+            className="absolute top-28 left-0 right-0 flex justify-center"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: hoveredSide === "right" ? 1 : 0.6, y: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            <ChevronRight size={24} />
-          </button>
-        </div>
+            <span className="text-white/80 text-xs tracking-[0.3em] font-light uppercase">Мужская коллекция</span>
+          </motion.div>
+
+          {/* Bottom CTA */}
+          <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-4 z-10">
+            <motion.button
+              className="px-10 py-3 border border-white text-white text-sm font-semibold tracking-widest uppercase backdrop-blur-sm bg-white/10 hover:bg-white hover:text-black transition-all duration-300"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Для него
+            </motion.button>
+          </div>
+        </motion.div>
+
       </div>
 
-      {/* Side Navigation Indicators */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 hidden md:block">
-        <div className="flex flex-col space-y-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-1 h-8 transition-all duration-300 ${
-                currentSlide === index ? "bg-white" : "bg-white/40 hover:bg-white/60"
-              }`}
-              aria-label={`Слайд ${index + 1}`}
-            />
-          ))}
-        </div>
+      {/* Center brand label */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+        <motion.div
+          className="text-center"
+          animate={{ opacity: hoveredSide ? 0 : 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h1 className="text-4xl md:text-6xl font-black tracking-[0.2em] text-white drop-shadow-2xl leading-none">
+            LUX<br />HISTORY
+          </h1>
+        </motion.div>
       </div>
+
     </div>
   )
 }
